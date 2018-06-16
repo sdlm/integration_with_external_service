@@ -2,7 +2,7 @@ from typing import Union
 
 import feedparser
 
-from abstract_classes import Grabber
+from ..abstract_classes import Grabber
 
 
 class RSSGrabber(Grabber):

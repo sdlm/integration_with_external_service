@@ -1,6 +1,6 @@
 import json
 
-from file.classes import FileGrabber
+from ..classes import FileGrabber
 
 
 class JSONGrabber(FileGrabber):

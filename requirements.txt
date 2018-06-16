@@ -1,2 +1,2 @@
-marshmallow==2.15.3
 feedparser==5.2.1
+Faker==0.8.16

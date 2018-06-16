@@ -1,6 +1,6 @@
 import csv
 
-from file.classes import FileGrabber
+from ..classes import FileGrabber
 
 
 class CSVGrabber(FileGrabber):

@@ -1,4 +1,4 @@
-from abstract_classes import Grabber
+from ..abstract_classes import Grabber
 
 
 # noinspection PyAbstractClass
