@@ -14,13 +14,14 @@ validated_data -> ModelSerializer -> instance
 
 # Пример использования
 ```
-class ExampleSchema(Schema):
+class SomeSchema(Schema):
     first_field = fields.String()
     second_field = fields.String()
     date_field = fields.Date()
+    nested_field = fields.Nested(OtherSchema)
 
 ...
 
-schema = ExampleSchema()
-validated_data = schema.dump(raw_data)
+schema = SomeSchema()
+validated_data = schema.load(raw_data)
 ```
