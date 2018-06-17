@@ -2,6 +2,15 @@
 Предполагается что данные мы уже [как-то получили](https://github.com/sdlm/simplest_grabber.git). Далее нам нужно:
 - выделить интересующие нас данные
 - провалидировать данные
+- собрать данные для создания инстанса модели
+- создать инстанс модели
+
+Идея реализации взята из библиотеки [marshmallow](https://marshmallow.readthedocs.io/en/latest/).
+
+```
+raw_data -> ExternalEndpointSerializer -> validated_data
+validated_data -> ModelSerializer -> instance
+```
 
 # Пример использования
 ```
