@@ -1,5 +1,5 @@
-from abstract_classes import Field
-from utils import from_iso_date, from_iso_datetime
+from serializer.abstract_classes import Field
+from serializer.utils import from_iso_date, from_iso_datetime
 
 
 class String(Field):

@@ -3,8 +3,8 @@ import unittest
 
 from faker import Faker
 
-import fields
-from schema import Schema
+from serializer import fields
+from serializer.schema import Schema
 
 
 class TestSchema(Schema):
