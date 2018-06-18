@@ -23,7 +23,7 @@ class Schema:
             field = getattr(cls, prop_name)
             result[prop_name] = field.deserialize(value)
 
-        return cls.__try_make_object(data)
+        return cls.__try_make_object(result)
 
     @classmethod
     def __get_props(cls):

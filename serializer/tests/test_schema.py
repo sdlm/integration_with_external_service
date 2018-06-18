@@ -28,8 +28,8 @@ class User:
 
 
 class TestPostLoadSchema(Schema):
-    first_field = fields.String()
-    second_field = fields.String()
+    name = fields.String()
+    email = fields.String()
 
     @classmethod
     def post_load(cls, data: dict):

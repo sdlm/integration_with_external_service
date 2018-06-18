@@ -39,3 +39,13 @@ class ModelSchema(Schema):
 schema = ModelSchema()
 model_instance = schema.load(data)
 ```
+
+# Запуск тестов
+```
+python -m unittest grabber/tests/*
+```
+
+# Установка
+```
+pip install .
+```
