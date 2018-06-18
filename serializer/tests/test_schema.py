@@ -65,6 +65,21 @@ class SchemaTest(unittest.TestCase):
         expected = self.get_expected_data(raw_data)
         self.assertEqual(result, expected)
 
+    def test_many(self):
+        schema = TestSchema()
+
+        raw_data = [
+            self.get_test_data(),
+            self.get_test_data(),
+        ]
+        result = schema.load(raw_data, many=True)
+
+        expected = [
+            self.get_expected_data(raw_data[0]),
+            self.get_expected_data(raw_data[1]),
+        ]
+        self.assertEqual(result, expected)
+
     def test_nested_field(self):
         schema = TestSchemaWithNestedField()
         raw_nested_data = self.get_test_data()
