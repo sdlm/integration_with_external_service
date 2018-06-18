@@ -25,3 +25,17 @@ class SomeSchema(Schema):
 schema = SomeSchema()
 validated_data = schema.load(raw_data)
 ```
+
+```
+class ModelSchema(Schema):
+    ...
+
+    @classmethod
+    def post_load(cls, data):
+        return Model(**data)
+
+...
+
+schema = ModelSchema()
+model_instance = schema.load(data)
+```

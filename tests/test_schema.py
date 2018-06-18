@@ -18,6 +18,24 @@ class TestSchemaWithNestedField(Schema):
     nested_field = fields.Nested(TestSchema)
 
 
+class User:
+    name: str
+    email: str
+
+    def __init__(self, name, email):
+        self.name = name
+        self.email = email
+
+
+class TestPostLoadSchema(Schema):
+    first_field = fields.String()
+    second_field = fields.String()
+
+    @classmethod
+    def post_load(cls, data: dict):
+        return User(**data)
+
+
 class SchemaTest(unittest.TestCase):
 
     def setUp(self):
@@ -60,3 +78,14 @@ class SchemaTest(unittest.TestCase):
         expected = raw_data.copy()
         expected['nested_field'] = self.get_expected_data(raw_nested_data)
         self.assertEqual(result, expected)
+
+    def test_post_load(self):
+        schema = TestPostLoadSchema()
+        raw_data = {
+            'name': self.fake.name(),
+            'email': self.fake.safe_email()
+        }
+        user = schema.load(raw_data)
+        self.assertTrue(isinstance(user, User))
+        self.assertEqual(user.name, raw_data['name'])
+        self.assertEqual(user.email, raw_data['email'])
